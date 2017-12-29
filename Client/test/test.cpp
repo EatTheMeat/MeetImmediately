@@ -5,6 +5,7 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <errno.h>
+#include <android/log.h>
 
 #define PIXEL_FORMAT_RGB_565 4
 #define PIXEL_FORMAT_RGB_888 3
@@ -43,7 +44,7 @@ int main(){
 	void const* mapbase = MAP_FAILED;
     ssize_t mapsize = -1;
     void const* base = 0;
-	
+	__android_log_print(0,"TEST","xxxxxxxxxxxxxxxxxxxxxxxxxxstart");
 	if(fb>=0){
 		struct fb_var_screeninfo vinfo;
 		if (ioctl(fb, FBIOGET_VSCREENINFO, &vinfo) == 0) {
