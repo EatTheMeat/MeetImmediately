@@ -1,21 +1,27 @@
 
 
 #include "encoder.h"
+#include <android/log.h>
 
 AVCodecContext * video_encoder_set_format(char *mine,enum AVMediaType codec_type, enum AVPixelFormat pix_fmt,int width,int height){
 	if(mine==NULL || width<=0 || height<=0 || pix_fmt<0 || codec_type<0){
 		return NULL;
 	}
 	
+	__android_log_print(5,"TEST","mine:%s",mine);
 	AVCodec* pCodec = avcodec_find_encoder_by_name(mine);
 	if(pCodec==NULL){
+		__android_log_print(5,"TEST", "can not find codec");
 		return NULL;
 	}
-	
+	__android_log_print(5,"TEST", "get codec");
 	AVCodecContext *pCodecCtx = avcodec_alloc_context3(pCodec);
 	if(pCodecCtx==NULL){
+		__android_log_print(5,"TEST", "can not get context by codec");
+
 		return NULL;
 	}
+	__android_log_print(5,"TEST", "get context by codec");
 		//set codec param
     pCodecCtx->codec_id = pCodec->id;  
     pCodecCtx->codec_type = pCodec->type;  

@@ -3122,6 +3122,8 @@ AVCodec *avcodec_find_encoder_by_name(const char *name)
         return NULL;
     p = first_avcodec;
     while (p) {
+		if(av_codec_is_encoder(p)) av_log(NULL, AV_LOG_WARNING, "encoder --- mine:%s, Codec name :%s.\n", name,p->name);
+		else  av_log(NULL, AV_LOG_WARNING, "decoder --- mine:%s, Codec name :%s.\n", name,p->name);
         if (av_codec_is_encoder(p) && strcmp(name, p->name) == 0)
             return p;
         p = p->next;
