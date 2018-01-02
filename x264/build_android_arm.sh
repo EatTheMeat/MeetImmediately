@@ -1,13 +1,6 @@
 export NDK_HOME=$HOME/Enviroment/android-ndk-r12b
-export PATH=$NDK_HOME:$PATH
-export TMPDIR=$PWD/tmpdir
-export NDK=$HOME/Enviroment/android-ndk-r12b
-export SYSROOT=$NDK/platforms/android-15/arch-arm/
+export SYSROOT=$NDK_HOME/platforms/android-15/arch-arm/
 export TOOLCHAIN=$HOME/Enviroment/android-ndk-r12b/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64
-export PREFIX=$PWD/output
-export ADDI_CFLAGS="-marm"
-export ADDI_LDFLAGS=""
-export CPU=arm
 
 function build_one
 {
@@ -17,7 +10,7 @@ function build_one
 --enable-pic \
 --enable-shared \
 --cross-prefix=$TOOLCHAIN/bin/arm-linux-androideabi- \
---sysroot=$NDK_HOME/platforms/android-15/arch-arm/ \
+--sysroot=$SYSROOT \
 --disable-asm \
 --disable-cli \
 
