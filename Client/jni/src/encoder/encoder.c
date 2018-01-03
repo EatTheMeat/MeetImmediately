@@ -44,7 +44,7 @@ int video_encoder_start(AVCodecContext *pCodecCtx){
 		return -1;
 	}
 	if (avcodec_open2(pCodecCtx, pCodecCtx->codec,NULL) < 0){  
-        printf("Failed to open encoder! \n");  
+        __android_log_print(5,"TEST","Failed to open encoder! \n");  
         return -1;  
     }  
 	return 0;

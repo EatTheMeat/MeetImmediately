@@ -62,7 +62,7 @@ int player_set_video_format(player_ctrl_h *p_ctrl, char *pix_fmt, int width, int
 		return -1;
 	}
 	p_ctrl->pVideoCodecCtx = pCodecCtx;
-	
+	__android_log_print(5,"TEST","got video codec \n");
 	return 0;
 }
 
@@ -79,6 +79,7 @@ int player_start(player_ctrl_h *p_ctrl){
 		//p_ctrl->apkt=av_new_packet();
 		
 	}
+	return 0;
 }
 
 int player_stop(player_ctrl_h *p_ctrl){
